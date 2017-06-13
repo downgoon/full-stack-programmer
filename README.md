@@ -2,7 +2,6 @@
 
 <!-- toc -->
 
-
 ## Data Access
 
 ### MySQL
@@ -97,5 +96,7 @@
 
 ```
 $ book sm
-$ gitbook build ./ docs
+$ gitbook install && gitbook build ./ docs
 ```
+
+本地快速运行：``http-server docs``

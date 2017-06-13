@@ -1,0 +1,655 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Osquery And Glances · full-stack-programmer</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="downgoon">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../PM/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://downgoon.xyz" target="_blank" class="custom-link">Offical Site</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../EE/">
+            
+                <a href="../../EE/">
+            
+                    
+                    EE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../FE/">
+            
+                <a href="../../FE/">
+            
+                    
+                    FE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    OP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    系统监控
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1.1" data-path="osquery-and-glances.html">
+            
+                <a href="osquery-and-glances.html">
+            
+                    
+                    Osquery And Glances
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../PM/">
+            
+                <a href="../../PM/">
+            
+                    
+                    PM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../QA/">
+            
+                <a href="../../QA/">
+            
+                    
+                    QA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../RD/">
+            
+                <a href="../../RD/">
+            
+                    
+                    RD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Osquery And Glances</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x5DE5;&#x5177;&#xFF1A;osquery-&#x548C;-glances">&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x5DE5;&#x5177;&#xFF1A;osquery &#x548C; glances</h1>
+<!-- toc -->
+<ul>
+<li><a href="#glances-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;">glances &#x7CFB;&#x7EDF;&#x76D1;&#x63A7;</a><ul>
+<li><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x76D1;&#x63A7;&#x622A;&#x56FE;&#xFF08;&#x5355;&#x673A;&#xFF09;">&#x76D1;&#x63A7;&#x622A;&#x56FE;&#xFF08;&#x5355;&#x673A;&#xFF09;</a></li>
+</ul>
+</li>
+<li><a href="#osquery">osquery</a><ul>
+<li><a href="#&#x8DE8;&#x5E73;&#x53F0;">&#x8DE8;&#x5E73;&#x53F0;</a></li>
+<li><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x67E5;&#x770B;&#x4F53;&#x9A8C;">&#x67E5;&#x770B;&#x4F53;&#x9A8C;</a></li>
+<li><a href="#&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;">&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;</a></li>
+<li><a href="#&#x66F4;&#x591A;">&#x66F4;&#x591A;</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<ul>
+<li><a href="#&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x5DE5;&#x5177;osquery-&#x548C;-glances">&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x5DE5;&#x5177;&#xFF1A;osquery &#x548C; glances</a><ul>
+<li><a href="#glances-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;">glances &#x7CFB;&#x7EDF;&#x76D1;&#x63A7;</a><ul>
+<li><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x76D1;&#x63A7;&#x622A;&#x56FE;&#x5355;&#x673A;">&#x76D1;&#x63A7;&#x622A;&#x56FE;&#xFF08;&#x5355;&#x673A;&#xFF09;</a></li>
+</ul>
+</li>
+<li><a href="#osquery">osquery</a><ul>
+<li><a href="#&#x8DE8;&#x5E73;&#x53F0;">&#x8DE8;&#x5E73;&#x53F0;</a></li>
+<li><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x67E5;&#x770B;&#x4F53;&#x9A8C;">&#x67E5;&#x770B;&#x4F53;&#x9A8C;</a></li>
+<li><a href="#&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;">&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;</a></li>
+<li><a href="#&#x66F4;&#x591A;">&#x66F4;&#x591A;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- /TOC -->
+<ul>
+<li><code>glances</code>: &#x5185;&#x5B58;&#x3001;CPU&#x3001;IO&#xFF08;&#x78C1;&#x76D8;&#x548C;&#x7F51;&#x7EDC;&#xFF09;&#x3002;&#x5B83;&#x662F;&#x7528;<code>python</code>&#x5199;&#x7684;&#x3002;</li>
+<li><p><code>osquery</code>:  Facebook&#x5F00;&#x6E90;&#xFF0C;&#x4EE5;SQL&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;CPU&#xFF0C;&#x5185;&#x5B58;&#xFF0C;IO&#x7B49;&#x60C5;&#x51B5;&#x3002;</p>
+</li>
+<li><p>&#x4F20;&#x7EDF;&#x5DE5;&#x5177;&#xFF1A;top, iostat, sar</p>
+</li>
+</ul>
+<hr>
+<h2 id="glances-&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;">glances &#x7CFB;&#x7EDF;&#x76D1;&#x63A7;</h2>
+<p>&#x4E0D;&#x4EC5;&#x652F;&#x6301;&#x76F4;&#x63A5;&#x5728;&#x7EC8;&#x7AEF;&#x4E0A;&#x663E;&#x793A;&#x6570;&#x636E;&#xFF0C;&#x8FD8;&#x652F;&#x6301;&#x5728;web&#x4E0A;&#x663E;&#x793A;&#xFF0C;&#x9664;&#x4E86;&#x76D1;&#x89C6;&#x672C;&#x673A;&#x7684;&#x8D1F;&#x8F7D;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x8F7B;&#x6613;&#x5730;&#x76D1;&#x63A7;&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x524D;&#x63D0;&#x662F;&#x88C5;&#x6709;Glances&#xFF0C;&#x5E76;&#x4EE5;server&#x6A21;&#x5F0F;&#x542F;&#x52A8;glances&#xFF09;&#x7684;&#x8D1F;&#x8F7D;&#xFF0C;&#x751A;&#x81F3;&#x63D0;&#x4F9B;&#x4E86;REST&#x548C;XML-RPC&#x7684;&#x7F16;&#x7A0B;&#x63A5;&#x53E3;&#xFF0C;&#x652F;&#x6301;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;CSV&#xFF0C;html&#x6216; <strong>InfluxDB</strong> &#x548C;Statsd&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h3>
+<pre><code>apt-get install python-pip build-essential python-dev
+pip install glances bottle     #&#x5982;&#x679C;&#x4F60;&#x7684;linux&#x4E0A;&#x7F3A;&#x5C11;bottle&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x4F1A;&#x65E0;&#x6CD5;&#x5728;web&#x4E0A;&#x663E;&#x793A;
+</code></pre><blockquote>
+<p>glances &#x662F;python&#x5199;&#x7684;&#xFF0C;<code>pip install glances</code> &#x662F;python&#x7684;&#x5305;&#x7BA1;&#x7406;&#x3002;</p>
+</blockquote>
+<h3 id="&#x76D1;&#x63A7;&#x622A;&#x56FE;&#xFF08;&#x5355;&#x673A;&#xFF09;">&#x76D1;&#x63A7;&#x622A;&#x56FE;&#xFF08;&#x5355;&#x673A;&#xFF09;</h3>
+<p><img src="http://upload-images.jianshu.io/upload_images/2915464-5864b2489abf6416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="glances looking.png"></p>
+<hr>
+<h2 id="osquery">osquery</h2>
+<h3 id="&#x8DE8;&#x5E73;&#x53F0;">&#x8DE8;&#x5E73;&#x53F0;</h3>
+<p><code>osquery</code> &#x505A;&#x5230;&#x8DE8;&#x5E73;&#x53F0;&#x4E86;&#xFF0C;&#x4EFB;&#x4F55;&#x5E73;&#x53F0;&#x7684;CPU&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x7F51;&#x7EDC;IO&#xFF0C;&#x78C1;&#x76D8;IO&#x7B49;&#x90FD;&#x4EE5;SQL&#x7684;&#x5F62;&#x5F0F;&#x76D1;&#x63A7;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2915464-ab8e18c3056e0920.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="osquery &#x8DE8;&#x5E73;&#x53F0;.png"></p>
+<p>&#x751A;&#x81F3;&#x8FDE; firefox &#x6D4F;&#x89C8;&#x5668;&#x88C5;&#x4E86;&#x54EA;&#x4E9B;&#x63D2;&#x4EF6;&#xFF0C;&#x5B83;&#x90FD;&#x80FD;&#x67E5;&#x770B;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h3>
+<p>mac &#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash">$ brew install osquery
+$ osqueryi
+</code></pre>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x8FD0;&#x884C;<code>osqueryi</code> &#x62A5;&#x9519;&#xFF1A;</p>
+<pre><code>osqueryi
+dyld: Library not loaded: /usr/local/opt/libxml2/lib/libxml2.2.dylib
+  Referenced from: /usr/local/bin/osqueryi
+  Reason: Incompatible library version: osqueryi requires version 12.0.0 or later, but libxml2.2.dylib provides version 10.0.0
+[1]    5666 trace trap  osqueryi
+</code></pre><p>&#x8BF7;&#x6267;&#x884C;&#xFF1A;</p>
+<pre><code>brew install libxml2 libxslt
+brew link libxml2 libxslt --force
+</code></pre><p>&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x5B89;&#x88C5;&#xFF0C;&#x8BF7;&#x53C2;&#x8003;&#x5B98;&#x65B9;&#x8D44;&#x6599;&#xFF1A;
+<a href="https://osquery.io/downloads/" target="_blank">https://osquery.io/downloads/</a></p>
+<p>&#x6BD4;&#x5982; centos 6 &#x4E0B; rpm &#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#xFF1A;</p>
+<pre><code>$ wget https://osquery-packages.s3.amazonaws.com/centos6/osquery-2.3.2-1.el6.x86_64.rpm
+$ rpm -ivh osquery-2.3.2-1.el6.x86_64.rpm
+$ osqueryi
+</code></pre><h3 id="&#x67E5;&#x770B;&#x4F53;&#x9A8C;">&#x67E5;&#x770B;&#x4F53;&#x9A8C;</h3>
+<ul>
+<li>system_info: &#x673A;&#x5668;&#x60C5;&#x51B5;</li>
+</ul>
+<pre><code class="lang-bash">osquery&gt; select * from system_info;
+          hostname = MacBook-Pro.local
+              uuid = 49258E3F-83F0-55B0-9A5E-XXXXXX
+          cpu_<span class="hljs-built_in">type</span> = x86_64h
+       cpu_subtype = Intel x86-64h Haswell
+         cpu_brand = Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+cpu_physical_cores = 2
+ cpu_logical_cores = 4
+   physical_memory = 8589934592
+   hardware_vendor = Apple Inc.
+    hardware_model = MacBookPro12,1
+  hardware_version = 1.0
+   hardware_serial = C02PNPL6FVH5
+     computer_name =
+</code></pre>
+<ul>
+<li>os_version: &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7248;&#x672C;</li>
+</ul>
+<pre><code class="lang-bash">osquery&gt; select * from os_version;
++----------+---------+-------+-------+-------+-------+----------+---------------+----------+
+| name     | version | major | minor | patch | build | platform | platform_like | codename |
++----------+---------+-------+-------+-------+-------+----------+---------------+----------+
+| Mac OS X | 10.10.4 | 10    | 10    | 4     | 14E46 | darwin   | darwin        |          |
++----------+---------+-------+-------+-------+-------+----------+---------------+----------+
+</code></pre>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8DE8;&#x5E73;&#x53F0;&#xFF0C;&#x4E0D;&#x540C;&#x7CFB;&#x7EDF;&#x7684;&#x67E5;&#x770B;&#x65B9;&#x5F0F;&#x4E0D;&#x4E00;&#x6837;&#xFF1A;</p>
+<pre><code>cat /etc/issue
+CentOS release 6.5 (Final)
+Kernel \r on an \m
+</code></pre><ul>
+<li>arp_cache: &#x4EE5;&#x592A;&#x7F51;&#x5185;IP&#x5730;&#x5740;&#x5230;Mac&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;</li>
+</ul>
+<p>&#x6BD4;&#x5982;&#x67E5;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x91CC;&#x9762;&#xFF0C;&#x7F13;&#x5B58;&#x7684; IP&#x5730;&#x5740; &#x5230;mac&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</p>
+<pre><code class="lang-bash">$ osqueryi     <span class="hljs-comment"># &#x6CE8;&#x610F;&#xFF1A;osqueryi  (&#x547D;&#x4EE4;&#x884C;)  &#x4E0D;&#x662F; osquery</span>
+osquery&gt; select * from arp_cache;
++--------------+-------------------+-----------+-----------+
+| address      | mac               | interface | permanent |
++--------------+-------------------+-----------+-----------+
+| 10.1.114.1   | 00:00:5e:00:01:aa | en0       | 0         |
+| 10.1.114.19  | 48:45:20:1e:a2:58 | en0       | 0         |
+| 10.1.114.29  | ac:bc:32:7e:c1:59 | en0       | 0         |
+| 10.1.114.52  | 90:b9:31:21:e1:f1 | en0       | 0         |
+</code></pre>
+<ul>
+<li>routes&#xFF1A; &#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x8DEF;&#x7531;&#x8868;</li>
+</ul>
+<p>&#x5F53;&#x7136;&#x4E00;&#x822C;&#x666E;&#x901A;&#x7684;&#x5DE5;&#x4F5C;&#x53F0;&#x7684;&#x8DEF;&#x7531;&#x8868;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x65E0;&#x975E;&#x662F;&#x201C;&#x672C;&#x7F51;&#x6BB5;&#x76F4;&#x53D1;&#xFF0C;&#x8DE8;&#x7F51;&#x6BB5;&#x53D1;gateway&#xFF08;&#x7B2C;&#x4E00;&#x6761;&#x8DEF;&#x7531;&#x5668;&#xFF09;&#x201D;&#x3002;</p>
+<p>&#x67E5;&#x770B;Mac&#x7CFB;&#x7EDF;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x8DEF;&#x7531;&#x5668;&#xFF08;&#x70B9;&#x51FB;&#x4EFB;&#x52A1;&#x680F;&#x4E0A;&#x7684;wifi&#x6807;&#x793A; &#x9009;&#x62E9;&#x201C;&#x6253;&#x5F00;&#x7F51;&#x7EDC;&#x504F;&#x597D;&#x8BBE;&#x7F6E;&#x201D; &#x70B9;&#x51FB;&#x201C;&#x9AD8;&#x7EA7;&#x201D; &#x5C31;&#x53EF;&#x770B;&#x89C1;&#x4E86;&#xFF09;&#xFF1A;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2915464-646ffd9a99079035.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="first hop router.png"></p>
+<p>&#x67E5;&#x770B;&#x8DEF;&#x7531;&#x8868;&#xFF1A;</p>
+<pre><code>osquery&gt; select * from routes;
++-----------------------------+---------+------------+--------+-----------+-----------+-------+--------+---------+
+| destination                 | netmask | gateway    | source | flags     | interface | mtu   | metric | type    |
++-----------------------------+---------+------------+--------+-----------+-----------+-------+--------+---------+
+| 127.0.0.1                   | 32      | 127.0.0.1  |        | 2097157   | lo0       | 16384 | 0      | local   |
+| ::1                         | 128     | ::1        |        | 2098181   | lo0       | 16384 | 0      | local   |
+| fe80:1::1                   | 128     |            |        | 18875397  | lo0       | 16384 | 0      | local   |
+| fe80:4::a65e:60ff:fed6:1c55 | 128     |            |        | 18875397  | lo0       | 16384 | 0      | local   |
+| 0.0.0.0                     | 0       | 10.1.114.1 |        | 67587     | en0       | 1500  | 0      | gateway |
+| 10.0.5.55                   | 32      | 10.1.114.1 |        | 17170439  | en0       | 1500  | 0      | gateway |
+</code></pre><ul>
+<li>interface_addresses: &#x7F51;&#x5361;&#x60C5;&#x51B5;</li>
+</ul>
+<pre><code class="lang-bash">osquery&gt; select * from interface_addresses;
++-----------+---------------------------+-----------------------------------------+--------------+----------------+
+| interface | address                   | mask                                    | broadcast    | point_to_point |
++-----------+---------------------------+-----------------------------------------+--------------+----------------+
+| lo0       | ::1                       | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff |              | ::1            |
+| lo0       | 127.0.0.1                 | 255.0.0.0                               |              | 127.0.0.1      |
+| lo0       | fe80::1                   | ffff:ffff:ffff:ffff::                   |              |                |
+| en0       | fe80::a65e:60ff:fed6:1c55 | ffff:ffff:ffff:ffff::                   |              |                |
+| en0       | 10.1.114.72               | 255.255.254.0                           | 10.1.115.255 |                |
++-----------+---------------------------+-----------------------------------------+--------------+----------------+
+</code></pre>
+<ul>
+<li>dns_resolvers:  DNS &#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;</li>
+</ul>
+<pre><code>osquery&gt; select * from dns_resolvers;
++----+------------+--------------+---------+---------+
+| id | type       | address      | netmask | options |
++----+------------+--------------+---------+---------+
+| 0  | nameserver | 10.0.5.55    | 32      | 1729    |
+| 1  | nameserver | 10.199.84.13 | 32      | 1729    |
+| 2  | nameserver | 10.0.5.56    | 32      | 1729    |
++----+------------+--------------+---------+---------+
+</code></pre><h3 id="&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;">&#x663E;&#x793A;&#x66F4;&#x65B9;&#x4FBF;</h3>
+<p>&#x7528;&#x8FC7;mysql&#x547D;&#x4EE4;&#x884C;&#x7684;&#x77E5;&#x9053;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x4E00;&#x4E2A;&#x5217;&#x7684;&#x5185;&#x5BB9;&#x592A;&#x957F;&#xFF0C;&#x6309;&#x8BB0;&#x5F55;&#x663E;&#x793A;&#x7279;&#x522B;&#x4E0D;&#x65B9;&#x4FBF;&#x770B;&#x3002;osquery &#x7684;&#x8BBE;&#x8BA1;&#x8005;&#x60F3;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>osquery&gt; .mode line
+
+osquery&gt; select * from processes limit 1;
+          pid = 1
+         name = launchd
+         path = /sbin/launchd
+      cmdline =
+        state = R
+          cwd =
+         root =
+          uid = 0
+          gid = 0
+         euid = 0
+         egid = 0
+         suid = 0
+         sgid = 0
+      on_disk = 1
+   wired_size = -1
+resident_size = -1
+   total_size = -1
+    user_time = -1
+  system_time = -1
+   start_time = -1
+       parent = 0
+       pgroup = 1
+      threads = -1
+         nice = 0
+</code></pre><p>&#x66F4;&#x4E30;&#x5BCC;&#x7684;&#x663E;&#x793A;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5E2E;&#x52A9;&#xFF1A;</p>
+<pre><code>osquery&gt; .help
+Welcome to the osquery shell. Please explore your OS!
+You are connected to a transient &apos;in-memory&apos; virtual database.
+
+.all [TABLE]     Select all from a table
+.help            Show this message
+.mode MODE       Set output mode where MODE is one of:
+                   csv      Comma-separated values
+                   column   Left-aligned columns see .width
+                   line     One value per line
+                   list     Values delimited by .separator string
+                   pretty   Pretty printed SQL results (default)
+
+.schema [TABLE]  Show the CREATE statements
+.tables [TABLE]  List names of tables
+</code></pre><h3 id="&#x66F4;&#x591A;">&#x66F4;&#x591A;</h3>
+<p>&#x5173;&#x4E8E;osquery&#x7684;&#x66F4;&#x591A;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#xFF1A;
+<a href="https://osquery.io/docs/tables/" target="_blank">https://osquery.io/docs/tables/</a></p>
+<p>&#x6216;&#x8005; <code>osquery&gt; .tables</code> &#x547D;&#x4EE4;&#x5E2E;&#x52A9;&#x67E5;&#x770B;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x652F;&#x6301;&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>osquery&gt; .tables list
+  =&gt; listening_ports
+
+osquery&gt; .tables pro
+  =&gt; process_envs
+  =&gt; process_events
+  =&gt; process_file_events
+  =&gt; process_memory_map
+  =&gt; process_open_files
+  =&gt; process_open_sockets
+  =&gt; processes
+</code></pre><p>&#x63A5;&#x7740;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8868;&#x7684;&#x5B57;&#x6BB5;&#x60C5;&#x51B5;&#xFF08;&#x8868;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;&#xFF09;&#xFF1A;</p>
+<pre><code>.schema processes
+CREATE TABLE processes(`pid` BIGINT PRIMARY KEY, `name` TEXT, `path` TEXT, `cmdline` TEXT, `state` TEXT, `cwd` TEXT, `root` TEXT, `uid` BIGINT, `gid` BIGINT, `euid` BIGINT, `egid` BIGINT, `suid` BIGINT, `sgid` BIGINT, `on_disk` INTEGER, `wired_size` BIGINT, `resident_size` BIGINT, `total_size` BIGINT, `user_time` BIGINT, `system_time` BIGINT, `start_time` BIGINT, `parent` BIGINT, `pgroup` BIGINT, `threads` INTEGER, `nice` INTEGER, `phys_footprint` BIGINT HIDDEN) WITHOUT ROWID;
+</code></pre><p>&#x5E38;&#x89C1;&#x7684;&#x8868;&#x8FD8;&#x6709;&#xFF1A;</p>
+<ul>
+<li>users:  &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x91CC;&#x6709;&#x591A;&#x5C11;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x3002;</li>
+<li>logged_in_users: &#x5F53;&#x524D;&#x767B;&#x9646;&#x4E86;&#x591A;&#x5C11;&#x7528;&#x6237;&#x3002;</li>
+<li>processes: &#x8FDB;&#x7A0B;</li>
+<li>process_open_files: &#x8FDB;&#x7A0B;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x3002;</li>
+<li>process_open_sockets: &#x8FDB;&#x7A0B;&#x6253;&#x5F00;&#x7684;socket&#x3002;</li>
+<li>listening_ports&#xFF1A; &#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x7684;&#x4FA6;&#x542C;&#x7AEF;&#x53E3;&#xFF08;&#x542B;pid&#xFF09;&#x3002;</li>
+</ul>
+<p>&#x6BD4;&#x5982;&#xFF1A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x6570;&#x6700;&#x591A;&#x7684;&#x8FDB;&#x7A0B;</p>
+<pre><code class="lang-bash">osquery&gt; select pid, count(fd) as count from process_open_files group by pid order by count desc;
++------+-------+
+| pid  | count |
++------+-------+
+| 629  | 168   |
+| 283  | 142   |
+| 287  | 58    |
+</code></pre>
+<p>&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF1A;</p>
+<pre><code>osquery&gt; select * from listening_ports;
++------+-------+----------+--------+-----------+
+| pid  | port  | protocol | family | address   |
++------+-------+----------+--------+-----------+
+| 235  | 0     | 17       | 2      | 0.0.0.0   |
+| 235  | 0     | 0        | 0      |           |
+| 243  | 61116 | 17       | 2      | 0.0.0.0   |
+| 267  | 49153 | 6        | 2      | 127.0.0.1 |
+| 477  | 0     | 6        | 2      | 0.0.0.0   |
+| 1129 | 4300  | 6        | 2      | 127.0.0.1 |
+| 1129 | 4301  | 6        | 2      | 127.0.0.1 |
++------+-------+----------+--------+-----------+
+</code></pre><ul>
+<li>mounts: &#x6302;&#x8F7D;&#x7684;&#x78C1;&#x76D8;</li>
+</ul>
+<pre><code>osquery&gt; select * from mounts;
++---------------+---------------+-------------+--------+-------------+----------+-------------+------------------+----------+-------------+----------+
+| device        | device_alias  | path        | type   | blocks_size | blocks   | blocks_free | blocks_available | inodes   | inodes_free | flags    |
++---------------+---------------+-------------+--------+-------------+----------+-------------+------------------+----------+-------------+----------+
+| /dev/disk1    | /dev/disk1    | /           | hfs    | 4096        | 60983424 | 29853926    | 29789926         | 60983422 | 29789926    | 75550720 |
+| devfs         | devfs         | /dev        | devfs  | 512         | 664      | 0           | 0                | 1149     | 0           | 68161536 |
+| map -hosts    | map -hosts    | /net        | autofs | 1024        | 0        | 0           | 0                | 0        | 0           | 72351752 |
+| map auto_home | map auto_home | /home       | autofs | 1024        | 0        | 0           | 0                | 0        | 0           | 72351744 |
+| /dev/disk2s2  | /dev/disk2s2  | /Volumes/&#x4E07;&#x4FE1; | hfs    | 4096        | 25000    | 5317        | 5317             | 24998    | 5317        | 69243929 |
++---------------+---------------+-------------+--------+-------------+----------+-------------+------------------+----------+-------------+----------+
+</code></pre><hr>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h1>
+<ul>
+<li><p>glances &#x4F7F;&#x7528;
+<a href="https://www.ibm.com/developerworks/cn/linux/1304_caoyq_glances/" target="_blank">https://www.ibm.com/developerworks/cn/linux/1304_caoyq_glances/</a></p>
+</li>
+<li><p>&#x4EE5;web&#x5F62;&#x5F0F;&#x4F7F;&#x7528;glances
+<a href="https://my.oschina.net/hochikong/blog/379972" target="_blank">https://my.oschina.net/hochikong/blog/379972</a></p>
+</li>
+<li><p>osquery &#x5B89;&#x88C5;
+<a href="https://osquery.readthedocs.io/en/stable/" target="_blank">https://osquery.readthedocs.io/en/stable/</a></p>
+</li>
+<li><p>osquery tables &#x5217;&#x8868;
+<a href="https://osquery.io/docs/tables/" target="_blank">https://osquery.io/docs/tables/</a></p>
+</li>
+<li><p>osquery &#x5404;&#x5E73;&#x53F0;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;
+<a href="https://osquery.io/downloads/" target="_blank">https://osquery.io/downloads/</a></p>
+</li>
+</ul>
+<script type="text/javascript">var className='atoc';</script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../../PM/" class="navigation navigation-next navigation-unique" aria-label="Next page: PM">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Osquery And Glances","level":"1.4.1.1","depth":3,"next":{"title":"PM","level":"1.5","depth":1,"path":"PM/README.md","ref":"PM/README.md","articles":[]},"previous":{"title":"系统监控","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"Osquery And Glances","level":"1.4.1.1","depth":3,"path":"OP/系统监控/osquery-and-glances.md","ref":"OP/系统监控/osquery-and-glances.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["atoc"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"atoc":{"addClass":true,"className":"atoc"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"downgoon","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"full-stack-programmer","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Offical Site":"http://downgoon.xyz"}},"gitbook":"*","description":"full-stack-programmer","extension":null},"file":{"path":"OP/系统监控/osquery-and-glances.md","mtime":"2017-06-13T11:46:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-13T11:51:49.999Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
